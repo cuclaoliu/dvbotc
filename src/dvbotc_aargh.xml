@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Sample specs for parsing command line -->
+<Spec>
+	<Structure name="DVBOTC"/>
+	<Header name="dvbotc_opts"/>
+	<Module name="dvbotc_opts"/>
+	<Function name="get_dvbotc_opts"/>
+	<Remarks>
+		<Text which="header">
+ This class represents the command
+ line for the dvbotc application.
+		</Text>
+		<File which="implementation" name="gpl_notice.txt"/>
+		<Copyright which="both" author="Damien Morrissey"/>
+	</Remarks>
+	<Options>
+		<BoolOpt letter="x" name="no_write"/>
+		<BoolOpt letter="h" name="help"/>
+		<StringOpt letter="i" name="input_file">
+			<Required/>
+		</StringOpt>
+		<StringOpt letter="d" name="debug_output_prefix"/>
+		<StringOpt letter="o" name="output" default="dvbotc.bin"/>
+		<StringOpt letter="g" name="guard_interval" default = "1/4">
+			<Validator name="val_gi"/>
+		</StringOpt>
+		<StringOpt letter="p" name="puncturing_rate" default = "2/3">
+			<Validator name="val_pu"/>
+		</StringOpt>
+		<StringOpt letter="q" name="qam_level" default = "16">
+			<Validator name="val_qa"/>
+		</StringOpt>
+		<StringOpt letter="b" name="chan_bw" default = "6">
+			<Validator name="val_bw"/>
+		</StringOpt>
+		<StringOpt letter="c" name="cell_id">
+			<Validator name="val_id"/>
+		</StringOpt>
+	</Options>
+</Spec>
+<!-- 		<BoolOpt letter="c" name="sample_bool"/>
+<IntOpt letter="i" name="sample_int">
+	<Range min="1" max="6"/>
+	<Required/>
+</IntOpt>
+<IntOpt letter="n" name="multiple_ints">
+	<Multiple/>
+</IntOpt>
+<StringOpt letter="i" name="input_file">
+	<Length max="100" min="1"/>
+	<Required/>
+</StringOpt>-->
